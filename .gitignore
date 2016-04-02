@@ -1,2 +1,7 @@
 /node_modules
 /others
+/node
+/node_etw_provider.man
+/node_perfctr_provider.man
+/npm
+/nodevars

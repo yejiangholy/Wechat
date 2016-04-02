@@ -11,6 +11,8 @@ app.use(bodyParser.text());
 // Support receiving JSON in HTTP request bodies
 app.use(bodyParser.json());
 
+app.use(express.static('/WeChat/login.html'));
+
 
 app.get('/',function(req,res){
   res.set('content-type','text/html');
