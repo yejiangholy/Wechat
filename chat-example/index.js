@@ -6,9 +6,6 @@ app.get('/',function(req,res){
   res.sendFile(__dirname+'/index.html');
 });
 
-io.on('connection',function(socket){
-  console.log('a user connected');
-});
 
 io.on('connection',function(socket){
   console.log('a user connected');
@@ -22,6 +19,15 @@ io.on('connection',function(socket){
     console.log('message: '+msg);
   });
 });
+
+//when one more user connected or a user leave we will send this info to other user
+io.on('connection',function(socket){
+  socket.broadcast.emit('chat message','one more people connected');
+  socket.on('disconnect',function(){
+    socket.broadcast.emit('chat message','one people leave');
+  });
+});
+//////////////////////////////////////
 
 io.on('connection',function(socket){
   socket.on('chat message',function(msg){
