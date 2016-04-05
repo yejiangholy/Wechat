@@ -18,16 +18,16 @@
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
-    <script src="/socket.io/socket.io.js"></script>
+    <script src="/socket.io/socket.io.js"></script> <!--this is needed to use line 24 socekt = io()  -->
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script>
-  var socket = io();
-  $('form').submit(function() {
-    socket.emit('chat message',$('#m').val());
+  var socket = io();                    //connect to the socket in order to talk to server
+  $('form').submit(function() {         //submit build in function dectect send and therefore trigger the chat message function in th both side
+    socket.emit('chat message',$('#m').val()); //client call socekt.emit send message to server
     $('#m').val('');
     return false;
   });
-  socket.on('chat message',function(msg){
+  socket.on('chat message',function(msg){      // server set on specif function and do something, same server on in teh index.js
     $('#messages').append($('<li>').text(msg));
   });
 </script>
