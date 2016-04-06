@@ -16,7 +16,12 @@
   <body>
     <ul id="messages"></ul>
     <form action="">
-      <input id="m" autocomplete="off" /><button>Send</button>
+      <footer>
+    		<form id="chatform">
+    			<textarea id="message" placeholder="Write something.."></textarea>
+    		  <input id="m" autocomplete="off" /><button>Send</button>
+    		</form>
+    	</footer>
     </form>
     <script src="/socket.io/socket.io.js"></script> <!--this is needed to use line 24 socekt = io()  -->
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
