@@ -20,10 +20,9 @@ app.get('/',function(req,res){
   res.render('login');
 });
 
-// function sendXHR(verb, resource, body, cb) {
-//   var xhr = new XMLHttpRequest();
-//   xhr.open(verb, resource);
-
+app.get('/chat',function(req,res){ //get Name and password from req.body and send it to index(chat) page !!!
+	res.render('index'); 
+})
 
 io.on('connection',function(socket){
   console.log('a user connected');
@@ -46,6 +45,7 @@ io.on('connection',function(socket){
   });
 });
 //////////////////////////////////////
+
 
 io.on('connection',function(socket){
   socket.on('chat message',function(msg){
